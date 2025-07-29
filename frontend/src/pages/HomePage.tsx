@@ -70,17 +70,17 @@ const HomePage: React.FC = () => {
             </p>
             <div className="mt-10 flex justify-center gap-4">
               <Link
-                to="/tools"
+                to="/playground"
                 className="btn-primary text-lg px-8 py-3 inline-flex items-center"
               >
-                Explore Tools
+                Try Playground
                 <ArrowRightIcon className="ml-2 h-5 w-5" />
               </Link>
               <Link
-                to="/documentation"
+                to="/tools"
                 className="btn-secondary text-lg px-8 py-3"
               >
-                Get Started
+                Explore Tools
               </Link>
             </div>
           </div>

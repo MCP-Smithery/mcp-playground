@@ -15,6 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Tools', href: '/tools' },
+    { name: 'Playground', href: '/playground' },
     { name: 'Documentation', href: '/documentation' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
@@ -53,7 +54,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 ))}
               </div>
             </div>
-            <div className="hidden sm:ml-6 sm:flex sm:items-center">
+                          <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-3">
+              <Link
+                to="/playground"
+                className="bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors"
+              >
+                Try Playground
+              </Link>
               <button className="btn-primary">
                 Get Started
               </button>
