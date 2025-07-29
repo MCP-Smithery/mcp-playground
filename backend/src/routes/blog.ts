@@ -205,9 +205,9 @@ router.get('/', (req: Request, res: Response) => {
       }
     };
     
-    res.json(response);
+    return res.json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to fetch blog posts'
     });
@@ -232,9 +232,9 @@ router.get('/:slug', (req: Request, res: Response) => {
       data: post
     };
     
-    res.json(response);
+    return res.json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to fetch blog post'
     });
@@ -276,9 +276,9 @@ router.post('/', (req: Request, res: Response) => {
       data: newPost
     };
     
-    res.status(201).json(response);
+    return res.status(201).json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to create blog post'
     });

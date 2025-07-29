@@ -17,6 +17,10 @@
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=8.0.0"
+  },
   "keywords": ["ai", "tools", "mcp", "typescript", "platform"],
   "author": "Smithery.ai Team",
   "license": "MIT"

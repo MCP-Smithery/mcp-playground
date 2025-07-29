@@ -75,10 +75,10 @@ router.post('/', (req: Request, res: Response) => {
       }
     };
     
-    res.status(201).json(response);
+    return res.status(201).json(response);
   } catch (error) {
     console.error('Error processing contact form:', error);
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to submit contact message. Please try again later.'
     });
@@ -116,9 +116,9 @@ router.get('/', (req: Request, res: Response) => {
       }
     };
     
-    res.json(response);
+    return res.json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to fetch contact messages'
     });
@@ -154,9 +154,9 @@ router.put('/:id', (req: Request, res: Response) => {
       data: mockMessages[messageIndex]
     };
     
-    res.json(response);
+    return res.json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to update contact message'
     });

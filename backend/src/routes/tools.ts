@@ -144,9 +144,9 @@ router.get('/:id', (req: Request, res: Response) => {
       data: tool
     };
     
-    res.json(response);
+    return res.json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to fetch tool'
     });
@@ -182,9 +182,9 @@ router.post('/', (req: Request, res: Response) => {
       data: newTool
     };
     
-    res.status(201).json(response);
+    return res.status(201).json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to create tool'
     });
@@ -217,9 +217,9 @@ router.put('/:id', (req: Request, res: Response) => {
       data: mockTools[toolIndex]
     };
     
-    res.json(response);
+    return res.json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to update tool'
     });
@@ -241,12 +241,12 @@ router.delete('/:id', (req: Request, res: Response) => {
     
     mockTools.splice(toolIndex, 1);
     
-    res.json({
+    return res.json({
       success: true,
       data: { message: 'Tool deleted successfully' }
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to delete tool'
     });

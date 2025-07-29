@@ -173,7 +173,7 @@ Learn how to create and publish your own AI tools on the Smithery.ai platform.
 
 ## Prerequisites
 
-- Node.js 18+ or Python 3.8+
+- Node.js 22+ or Python 3.8+
 - Basic understanding of REST APIs
 - Familiarity with your chosen programming language
 
@@ -411,9 +411,9 @@ router.get('/', (req: Request, res: Response) => {
       data: filteredDocs
     };
     
-    res.json(response);
+    return res.json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to fetch documentation'
     });
@@ -438,9 +438,9 @@ router.get('/:id', (req: Request, res: Response) => {
       data: doc
     };
     
-    res.json(response);
+    return res.json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to fetch documentation section'
     });
@@ -457,9 +457,9 @@ router.get('/meta/categories', (req: Request, res: Response) => {
       data: categories
     };
     
-    res.json(response);
+    return res.json(response);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Failed to fetch documentation categories'
     });
