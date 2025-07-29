@@ -80,27 +80,27 @@ const ToolsPage: React.FC = () => {
     return (
       <div className="flex items-center">
         <div className="flex">{stars}</div>
-        <span className="ml-1 text-base text-gray-600">({rating})</span>
+        <span className="ml-1 text-base text-gray-400">({rating})</span>
       </div>
     );
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-white mb-4">
             AI Tools Marketplace
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Discover and integrate powerful AI tools into your workflows. 
             From code analysis to content generation, find the perfect tool for your needs.
           </p>
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+        <div className="bg-gray-800 rounded-lg shadow-sm border border-gray-700 p-6 mb-8">
           <form onSubmit={handleSearch} className="space-y-4">
             <div className="relative">
               <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -109,7 +109,7 @@ const ToolsPage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search tools..."
-                className="input-field pl-10"
+                className="bg-gray-700 text-white border border-gray-600 rounded-lg px-3 py-2 pl-10 w-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
               />
             </div>
             
@@ -117,7 +117,7 @@ const ToolsPage: React.FC = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="input-field"
+                className="bg-gray-700 text-white border border-gray-600 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
               >
                 <option value="">All Categories</option>
                 {categories.map((category) => (
@@ -132,13 +132,13 @@ const ToolsPage: React.FC = () => {
                 value={selectedTag}
                 onChange={(e) => setSelectedTag(e.target.value)}
                 placeholder="Filter by tag..."
-                className="input-field"
+                className="bg-gray-700 text-white border border-gray-600 rounded-lg px-3 py-2 w-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
               />
               
               <button
                 type="button"
                 onClick={clearFilters}
-                className="btn-secondary"
+                className="bg-gray-700 hover:bg-gray-600 border border-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
               >
                 Clear Filters
               </button>
@@ -153,7 +153,7 @@ const ToolsPage: React.FC = () => {
           </div>
         ) : error ? (
           <div className="text-center py-12">
-            <p className="text-red-600">{error}</p>
+            <p className="text-red-400">{error}</p>
             <button
               onClick={fetchTools}
               className="btn-primary mt-4"
@@ -163,7 +163,7 @@ const ToolsPage: React.FC = () => {
           </div>
         ) : tools.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-600">No tools found matching your criteria.</p>
+            <p className="text-gray-400">No tools found matching your criteria.</p>
             <button
               onClick={clearFilters}
               className="btn-primary mt-4"
@@ -174,20 +174,20 @@ const ToolsPage: React.FC = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {tools.map((tool) => (
-              <div key={tool.id} className="card hover:shadow-md transition-shadow">
+              <div key={tool.id} className="bg-gray-800 border border-gray-700 rounded-lg p-6 hover:border-gray-600 transition-colors">
                 <div className="flex justify-between items-start mb-4">
                                      <div>
-                     <h3 className="text-xl font-bold text-gray-900 mb-2">
+                     <h3 className="text-xl font-bold text-white mb-2">
                        {tool.name}
                      </h3>
-                     <span className="inline-block bg-primary-100 text-primary-800 text-sm px-3 py-1 rounded-full">
+                     <span className="inline-block bg-primary-900 text-primary-300 text-sm px-3 py-1 rounded-full">
                        {tool.category}
                      </span>
                    </div>
-                   <span className="text-base text-gray-500 font-medium">v{tool.version}</span>
+                   <span className="text-base text-gray-400 font-medium">v{tool.version}</span>
                 </div>
 
-                <p className="text-gray-600 mb-4 line-clamp-3 text-base leading-relaxed">
+                <p className="text-gray-300 mb-4 line-clamp-3 text-base leading-relaxed">
                   {tool.description}
                 </p>
 
@@ -195,21 +195,21 @@ const ToolsPage: React.FC = () => {
                   {tool.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full"
+                      className="inline-flex items-center text-sm text-gray-300 bg-gray-700 px-3 py-1 rounded-full"
                     >
                       <TagIcon className="h-4 w-4 mr-1" />
                       {tag}
                     </span>
                   ))}
                   {tool.tags.length > 3 && (
-                    <span className="text-sm text-gray-500 font-medium">
+                    <span className="text-sm text-gray-400 font-medium">
                       +{tool.tags.length - 3} more
                     </span>
                   )}
                 </div>
 
                                 <div className="flex justify-between items-center mb-4">
-                  <div className="flex items-center space-x-4 text-base text-gray-600">
+                  <div className="flex items-center space-x-4 text-base text-gray-300">
                     <div className="flex items-center">
                       <ArrowDownIcon className="h-5 w-5 mr-2" />
                       {formatNumber(tool.downloads)}
@@ -219,7 +219,7 @@ const ToolsPage: React.FC = () => {
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-base text-gray-600 font-medium">
+                  <span className="text-base text-gray-300 font-medium">
                     by {tool.author}
                   </span>
                   <Link
@@ -237,7 +237,7 @@ const ToolsPage: React.FC = () => {
         {/* Load More */}
         {tools.length > 0 && tools.length % 9 === 0 && (
           <div className="text-center mt-12">
-            <button className="btn-secondary">
+            <button className="bg-gray-700 hover:bg-gray-600 border border-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
               Load More Tools
             </button>
           </div>
