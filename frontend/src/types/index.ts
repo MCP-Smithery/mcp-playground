@@ -16,26 +16,7 @@ export interface Tool {
   rating?: number;
 }
 
-export interface BlogPost {
-  id: string;
-  title: string;
-  content: string;
-  excerpt: string;
-  author: string;
-  tags: string[];
-  published: boolean;
-  created_at: string;
-  updated_at: string;
-  featured_image?: string;
-  slug: string;
-}
 
-export interface ContactMessage {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
 
 export interface DocumentationSection {
   id: string;

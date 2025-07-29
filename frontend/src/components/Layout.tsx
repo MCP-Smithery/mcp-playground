@@ -16,9 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { name: 'Home', href: '/' },
     { name: 'Tools', href: '/tools' },
     { name: 'Playground', href: '/playground' },
-    { name: 'Documentation', href: '/documentation' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Docs', href: '/documentation' },
   ];
 
   const isActive = (href: string) => {
@@ -33,35 +31,38 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Navigation */}
       <nav className="bg-gray-900 shadow-sm border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex">
-              <div className="flex-shrink-0 flex items-center">
-                <Link to="/" className="text-2xl font-bold text-white">
-                  🔥 Smithery.ai
-                </Link>
-              </div>
-              <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={clsx(
-                      isActive(item.href) ? 'nav-link-active' : 'nav-link'
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
+          <div className="relative flex items-center h-16">
+            {/* Left: Logo */}
+            <div className="flex-shrink-0 flex items-center">
+              <Link to="/" className="text-2xl font-bold text-white">
+                🔥 Smithery.ai
+              </Link>
             </div>
-                          <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-3">
+            
+            {/* Center: Navigation Menu - Absolutely centered */}
+            <div className="hidden sm:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 items-center">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={clsx(
+                    isActive(item.href) ? 'nav-link-active' : 'nav-link'
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+            
+            {/* Right: Action Buttons */}
+            <div className="hidden sm:flex sm:items-center space-x-3 ml-auto">
               <Link
                 to="/playground"
-                className="bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors"
+                className="bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold text-base py-2 px-5 rounded-lg transition-colors"
               >
                 Try Playground
               </Link>
-              <button className="btn-primary">
+              <button className="btn-primary text-base font-semibold py-2 px-5">
                 Get Started
               </button>
             </div>
@@ -90,9 +91,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   key={item.name}
                   to={item.href}
                   className={clsx(
-                    'block px-3 py-2 text-base font-medium',
+                    'block px-3 py-2 text-lg font-semibold',
                     isActive(item.href)
-                      ? 'text-primary-400 bg-gray-800'
+                      ? 'text-white bg-primary-600'
                       : 'text-gray-300 hover:text-white hover:bg-gray-800'
                   )}
                   onClick={() => setIsMenuOpen(false)}
@@ -142,7 +143,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <ul className="mt-4 space-y-4">
                 <li>
                   <Link to="/documentation" className="text-base text-gray-400 hover:text-white">
-                    Documentation
+                    Docs
                   </Link>
                 </li>
                 <li>
@@ -162,11 +163,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     Mission
                   </a>
                 </li>
-                <li>
-                  <Link to="/blog" className="text-base text-gray-400 hover:text-white">
-                    Blog
-                  </Link>
-                </li>
+
                 <li>
                   <a href="#" className="text-base text-gray-400 hover:text-white">
                     Careers

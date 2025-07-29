@@ -80,7 +80,7 @@ const ToolsPage: React.FC = () => {
     return (
       <div className="flex items-center">
         <div className="flex">{stars}</div>
-        <span className="ml-1 text-sm text-gray-600">({rating})</span>
+        <span className="ml-1 text-base text-gray-600">({rating})</span>
       </div>
     );
   };
@@ -176,55 +176,55 @@ const ToolsPage: React.FC = () => {
             {tools.map((tool) => (
               <div key={tool.id} className="card hover:shadow-md transition-shadow">
                 <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {tool.name}
-                    </h3>
-                    <span className="inline-block bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded-full">
-                      {tool.category}
-                    </span>
-                  </div>
-                  <span className="text-sm text-gray-500">v{tool.version}</span>
+                                     <div>
+                     <h3 className="text-xl font-bold text-gray-900 mb-2">
+                       {tool.name}
+                     </h3>
+                     <span className="inline-block bg-primary-100 text-primary-800 text-sm px-3 py-1 rounded-full">
+                       {tool.category}
+                     </span>
+                   </div>
+                   <span className="text-base text-gray-500 font-medium">v{tool.version}</span>
                 </div>
 
-                <p className="text-gray-600 mb-4 line-clamp-3">
+                <p className="text-gray-600 mb-4 line-clamp-3 text-base leading-relaxed">
                   {tool.description}
                 </p>
 
-                <div className="flex flex-wrap gap-1 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {tool.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded"
+                      className="inline-flex items-center text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full"
                     >
-                      <TagIcon className="h-3 w-3 mr-1" />
+                      <TagIcon className="h-4 w-4 mr-1" />
                       {tag}
                     </span>
                   ))}
                   {tool.tags.length > 3 && (
-                    <span className="text-xs text-gray-500">
+                    <span className="text-sm text-gray-500 font-medium">
                       +{tool.tags.length - 3} more
                     </span>
                   )}
                 </div>
 
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex items-center space-x-4 text-sm text-gray-600">
-                                         <div className="flex items-center">
-                       <ArrowDownIcon className="h-4 w-4 mr-1" />
-                       {formatNumber(tool.downloads)}
-                     </div>
+                                <div className="flex justify-between items-center mb-4">
+                  <div className="flex items-center space-x-4 text-base text-gray-600">
+                    <div className="flex items-center">
+                      <ArrowDownIcon className="h-5 w-5 mr-2" />
+                      {formatNumber(tool.downloads)}
+                    </div>
                     {renderStars(tool.rating)}
                   </div>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">
+                  <span className="text-base text-gray-600 font-medium">
                     by {tool.author}
                   </span>
                   <Link
                     to={`/tools/${tool.id}`}
-                    className="btn-primary text-sm"
+                    className="btn-primary text-base px-6 py-3"
                   >
                     View Details
                   </Link>

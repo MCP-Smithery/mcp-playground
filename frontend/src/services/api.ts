@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Tool, BlogPost, ContactMessage, DocumentationSection, ApiResponse, SearchQuery } from '@/types';
+import { Tool, DocumentationSection, ApiResponse, SearchQuery } from '@/types';
 
 const api = axios.create({
   baseURL: '/api',
@@ -36,23 +36,7 @@ export const toolsApi = {
   },
 };
 
-// Blog API
-export const blogApi = {
-  getAll: async (params?: { limit?: number; offset?: number; tag?: string }): Promise<ApiResponse<BlogPost[]>> => {
-    const response = await api.get('/blog', { params });
-    return response.data;
-  },
 
-  getBySlug: async (slug: string): Promise<ApiResponse<BlogPost>> => {
-    const response = await api.get(`/blog/${slug}`);
-    return response.data;
-  },
-
-  create: async (post: Partial<BlogPost>): Promise<ApiResponse<BlogPost>> => {
-    const response = await api.post('/blog', post);
-    return response.data;
-  },
-};
 
 // Documentation API
 export const docsApi = {
@@ -72,13 +56,7 @@ export const docsApi = {
   },
 };
 
-// Contact API
-export const contactApi = {
-  submit: async (message: ContactMessage): Promise<ApiResponse<{ id: string; message: string }>> => {
-    const response = await api.post('/contact', message);
-    return response.data;
-  },
-};
+
 
 // Health check
 export const healthApi = {

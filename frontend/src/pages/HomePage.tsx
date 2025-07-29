@@ -166,27 +166,27 @@ const HomePage: React.FC = () => {
             {tool.icon}
           </div>
           <div>
-            <div className="flex items-center space-x-1">
-              <h3 className="text-white font-medium text-sm">{tool.name}</h3>
-              {tool.verified && <CheckBadgeIcon className="w-4 h-4 text-blue-400" />}
-            </div>
-            <p className="text-gray-400 text-xs">{tool.username}</p>
+                         <div className="flex items-center space-x-1">
+               <h3 className="text-white font-semibold text-base">{tool.name}</h3>
+               {tool.verified && <CheckBadgeIcon className="w-4 h-4 text-blue-400" />}
+             </div>
+             <p className="text-gray-400 text-sm">{tool.username}</p>
           </div>
         </div>
-        <div className="flex items-center space-x-2">
-          <span className={`px-2 py-1 rounded text-xs ${
-            tool.type === 'Remote' 
-              ? 'bg-blue-900 text-blue-300 border border-blue-700' 
-              : 'bg-orange-900 text-orange-300 border border-orange-700'
-          }`}>
-            {tool.type === 'Remote' ? '🌐 Remote' : '💻 Local'}
-          </span>
-          <span className="text-gray-400 text-xs">⬆ {tool.stats}</span>
-        </div>
+                 <div className="flex items-center space-x-2">
+           <span className={`px-2 py-1 rounded text-sm ${
+             tool.type === 'Remote' 
+               ? 'bg-blue-900 text-blue-300 border border-blue-700' 
+               : 'bg-orange-900 text-orange-300 border border-orange-700'
+           }`}>
+             {tool.type === 'Remote' ? '🌐 Remote' : '💻 Local'}
+           </span>
+           <span className="text-gray-400 text-sm">⬆ {tool.stats}</span>
+         </div>
       </div>
-      <p className="text-gray-300 text-sm leading-relaxed line-clamp-2">
-        {tool.description}
-      </p>
+             <p className="text-gray-300 text-base leading-relaxed line-clamp-2">
+         {tool.description}
+       </p>
     </div>
   );
 
@@ -259,13 +259,13 @@ const HomePage: React.FC = () => {
               {featuredTools.length}
             </span>
           </div>
-          <Link 
-            to="/tools?featured=true" 
-            className="text-gray-400 hover:text-white flex items-center space-x-1 text-sm"
-          >
-            <span>View all</span>
-            <ChevronRightIcon className="w-4 h-4" />
-          </Link>
+                     <Link 
+             to="/tools?featured=true" 
+             className="text-gray-400 hover:text-white flex items-center space-x-1 text-base"
+           >
+             <span>View all</span>
+             <ChevronRightIcon className="w-5 h-5" />
+           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -285,13 +285,13 @@ const HomePage: React.FC = () => {
             </span>
           </div>
           <div className="flex items-center space-x-4">
-            <Link 
-              to="/tools?sort=popular" 
-              className="text-gray-400 hover:text-white flex items-center space-x-1 text-sm"
-            >
-              <span>View all</span>
-              <ChevronRightIcon className="w-4 h-4" />
-            </Link>
+                         <Link 
+               to="/tools?sort=popular" 
+               className="text-gray-400 hover:text-white flex items-center space-x-1 text-base"
+             >
+               <span>View all</span>
+               <ChevronRightIcon className="w-5 h-5" />
+             </Link>
             <div className="flex space-x-2">
               <button
                 onClick={prevSlide}
@@ -331,12 +331,12 @@ const HomePage: React.FC = () => {
                   <div className={`w-10 h-10 ${category.color} rounded-lg flex items-center justify-center`}>
                     <category.icon className="w-5 h-5 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-white font-medium group-hover:text-blue-400 transition-colors">
-                      {category.name}
-                    </h3>
-                    <p className="text-gray-400 text-sm">{category.count} tools</p>
-                  </div>
+                                     <div>
+                     <h3 className="text-white font-semibold text-lg group-hover:text-blue-400 transition-colors">
+                       {category.name}
+                     </h3>
+                     <p className="text-gray-400 text-base">{category.count} tools</p>
+                   </div>
                 </div>
                 <ChevronRightIcon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
               </div>

@@ -6,8 +6,6 @@ import dotenv from 'dotenv';
 
 import toolsRouter from './routes/tools';
 import documentationRouter from './routes/documentation';
-import blogRouter from './routes/blog';
-import contactRouter from './routes/contact';
 
 dotenv.config();
 
@@ -44,8 +42,6 @@ app.get('/health', (req, res) => {
 // API routes
 app.use('/api/tools', toolsRouter);
 app.use('/api/documentation', documentationRouter);
-app.use('/api/blog', blogRouter);
-app.use('/api/contact', contactRouter);
 
 // 404 handler
 app.use('*', (req, res) => {

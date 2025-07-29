@@ -233,15 +233,15 @@ const PlaygroundPage: React.FC = () => {
                       onClick={() => handlePromptClick(prompt.prompt)}
                       className="bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-lg p-4 text-left transition-colors group"
                     >
-                      <div className="flex items-center space-x-3 mb-2">
-                        <span className="text-2xl">{prompt.icon}</span>
-                        <span className="text-sm font-medium text-blue-400">
-                          {prompt.title}
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-300 group-hover:text-white">
-                        {prompt.prompt}
-                      </p>
+                                             <div className="flex items-center space-x-3 mb-2">
+                         <span className="text-2xl">{prompt.icon}</span>
+                         <span className="text-base font-semibold text-blue-400">
+                           {prompt.title}
+                         </span>
+                       </div>
+                       <p className="text-base text-gray-300 group-hover:text-white">
+                         {prompt.prompt}
+                       </p>
                     </button>
                   ))}
                 </div>
@@ -269,20 +269,20 @@ const PlaygroundPage: React.FC = () => {
                   <div className="whitespace-pre-wrap">{message.content}</div>
                   {message.toolCalls && (
                     <div className="mt-3 pt-3 border-t border-gray-600">
-                      <div className="text-sm text-gray-400 mb-2">Tool Calls:</div>
-                      <div className="space-y-1">
-                        {message.toolCalls.map((call, index) => (
-                          <div key={index} className="flex items-center space-x-2 text-sm">
-                            <CheckCircleIcon className="h-4 w-4 text-green-400" />
-                            <span>{call.tool}</span>
-                            <span className="text-gray-500">({call.server})</span>
-                            <span className="text-gray-500">{call.duration}</span>
-                          </div>
-                        ))}
-                      </div>
+                                           <div className="text-base text-gray-400 mb-2">Tool Calls:</div>
+                       <div className="space-y-1">
+                         {message.toolCalls.map((call, index) => (
+                           <div key={index} className="flex items-center space-x-2 text-base">
+                             <CheckCircleIcon className="h-5 w-5 text-green-400" />
+                             <span>{call.tool}</span>
+                             <span className="text-gray-500">({call.server})</span>
+                             <span className="text-gray-500">{call.duration}</span>
+                           </div>
+                         ))}
+                       </div>
                     </div>
                   )}
-                  <div className="text-xs text-gray-400 mt-2">
+                  <div className="text-sm text-gray-400 mt-2">
                     {message.timestamp.toLocaleTimeString()}
                   </div>
                 </div>
