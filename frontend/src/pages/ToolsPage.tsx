@@ -4,7 +4,7 @@ import {
   MagnifyingGlassIcon, 
   TagIcon, 
   StarIcon,
-  ArrowDownloadIcon 
+  ArrowDownIcon 
 } from '@heroicons/react/24/outline';
 import { toolsApi } from '@/services/api';
 import { Tool } from '@/types';
@@ -210,10 +210,10 @@ const ToolsPage: React.FC = () => {
 
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex items-center space-x-4 text-sm text-gray-600">
-                    <div className="flex items-center">
-                      <ArrowDownloadIcon className="h-4 w-4 mr-1" />
-                      {formatNumber(tool.downloads)}
-                    </div>
+                                         <div className="flex items-center">
+                       <ArrowDownIcon className="h-4 w-4 mr-1" />
+                       {formatNumber(tool.downloads)}
+                     </div>
                     {renderStars(tool.rating)}
                   </div>
                 </div>
